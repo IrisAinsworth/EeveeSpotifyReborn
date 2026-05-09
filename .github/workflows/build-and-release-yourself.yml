@@ -1,5 +1,6 @@
 name: Create IPA Packages
-
+permissions:
+  contents: write
 on:
   workflow_dispatch:
     inputs:
@@ -103,6 +104,8 @@ jobs:
             EeveeSpotify.ipa 
             EeveeSpotify-patched.ipa
           draft: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Output Release URL
         run: |
